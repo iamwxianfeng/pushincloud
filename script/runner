@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+##
+# script/runner for rails 3.0
+# >RAILS_ENV=production ruby script/runner script/tools/01_xx.rb
+
+
+APP_PATH  = File.expand_path('../../config/environment',  __FILE__)
+
+require 'rubygems'
+require 'rails/commands/runner'

@@ -1,0 +1,10 @@
+<% if params[:id] == 'nba' %>
+  <%= render 'nba' %>
+<% elsif params[:id] == 'cloudjam' %>
+  <%= render 'cloudjam' %>
+<% else %>
+  <%= link_to "NBA图文直播", '/demos/broadcast?id=nba'  %> (<%= link_to "后台", "/admin/manage/nba", :target=>"_blank" %>) <br/>
+  <%= link_to "CloudJam直播", '/demos/broadcast?id=cloudjam'  %> <br/>
+  <%= link_to "Terminal测试", '/demos/terminal' %> <br/>
+  <%= link_to "chat with iphone", '/demos/iphone' %>
+<% end %>

@@ -1,0 +1,13 @@
+/.bundle
+Gemfile.lock
+/db/*.sqlite3
+<<<<<<< HEAD
+config/database.yml
+# Ignore all logfiles and tempfiles.
+=======
+>>>>>>> d57112aeeb01c2a3c29a336bf9d197e378392319
+/log/*.log
+/tmp
+nbproject/
+db/schema.rb
+config/mail.yml

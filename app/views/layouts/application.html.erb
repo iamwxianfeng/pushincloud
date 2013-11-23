@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pushincloud</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a href="/" class="brand" style="font-size:30px;" >PushInCloud</a>
+          <ul class="nav pull-right">
+            <li>
+              <a class="big" href="/demos">示例</a>
+            </li>
+            <li>
+              <a class="big" href="/tutorials">教程</a>
+            </li>
+            <li>
+              <a href="/docs">文档</a>
+            </li>
+            <!--
+            <li>
+              <a href="">Login</a>
+            </li>
+            <li>
+              <a id="nav_signup" class="btn success" href="">Sign Up</a>
+            </li>
+            -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="content" class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

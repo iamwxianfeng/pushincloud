@@ -1,0 +1,118 @@
+<div class="row">
+  <div class="features-tabs span-three-quarters">
+    <ul class="tabs">
+      <li class="active"><a class="tab-simple" href="#feature-simple">简单</a></li>
+      <li class="active"><a class="tab-reliable" href="#feature-reliable">可靠</a></li>
+      <li class="active"><a class="tab-scalable" href="#feature-scalable">规模化</a></li>
+      <li class="active"><a class="tab-secure" href="#feature-secure">安全</a></li>
+      <li class="active"><a class="tab-instant" href="#feature-instant">立刻</a></li>
+    </ul>
+
+    <div class="pill-content features-content clearfix">
+      <div id="feature-simple" class="active row">
+        <div class="span7">
+          <p>我们建议你的开发时间最好是用在有趣的应用逻辑上，而不是基础架构上.</p>
+          <p>我们提供一系列的API让你在数小时内就能拥有实时交互的特性而不是要花数天时间.</p>
+          <p></p>
+        </div>
+        <div class="span4">
+          <h4>Libraries for everyone</h4>
+          <p><img src="/images/langs.png"></p>
+          <a class="btn primary" href="/tutorials">阅读教程</a>
+        </div>
+      </div>
+      <div id="feature-reliable" class="row">
+        <div class="span7">
+          <p>Reduce risk for your projects by outsourcing your realtime infrastructure to a trusted platform maintained by experts.</p>
+          <p>Let us worry about compatibility issues, managing servers, and being woken up in the middle of the night.</p>
+        </div>
+
+      </div>
+      <div id="feature-scalable" class="row">
+        <div class="span7">
+          <p>The Pusher Realtime Cloud has be designed from the ground up to scale seamlessly to meet demand. Coupled with this is a clustered, fully redundant architecture hosted within Amazon EC2.</p>
+          <p>Scaling infrastructure to maintain millions of long running connections is not trivial, but we've worked out the tricks to handle it with ease.</p>
+        </div>
+        <div class="span4">
+          <p><img src="/images/amazon.jpeg"></p>
+          <p></p><div class="chromenum">40<span>billion</span></div><p></p>
+          <p class="note">messages delivered</p>
+        </div>
+      </div>
+      <div id="feature-secure" class="row">
+        <div class="span7">
+          <p>We understand that your data is precious, so we provide mechanisms for protecting it.</p>
+          <p> Pusher's advanced client authentication handshake guarantees messages only go to the people you expect.</p>
+          <p>Additionally, we allow you to connect our service via SSL for extra peace of mind.</p>
+        </div>
+        <div class="span4">
+          <h4></h4>
+          <p><img src="/images/auth-diag-mini.png"></p>
+          <a class="btn primary" href="/docs/authenticating_users">Read about authentication</a>
+        </div>
+      </div>
+      <div id="feature-instant" class="row">
+        <div class="span7">
+          <p>At the core of Pusher is the new HTML5 WebSocket protocol. This enables a low latency bi-directional socket to be established between browsers, mobiles apps and Pusher.</p>
+          <p>Once connected, messages can be pushed to clients with extremely low latency, making Pusher suitable for building multiplayer games.</p>
+        </div>
+        <div class="span4">
+          <p></p><div class="chromenum">5<span>ms</span></div><p></p>
+          <p class="note">average msg routing speed within Pusher</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="padding-left:130px;">
+      <img src="/images/pushincloud.png"/>
+    </div>
+
+
+  </div>
+
+  <div class="span-one-quarter">
+    <div class="tryit">
+      <h4>
+        立刻使用Email获取API KEY: </h4><p> <%= text_field_tag :email %> </p>
+      <input id="user_submit" type="button" value="获取API KEY" onclick="Push.Index.getApi();"/>
+
+    </div>
+    <div class="infobar">
+      <h3>Pushincloud善于...</h3>
+      <ul>
+        <li>聊天</li>
+        <li>事务流</li>
+        <li>通知</li>
+        <li>协作</li>
+        <li>多用户网络游戏</li>
+        <li>实时数据</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span8 code-examples">
+    <h3>工作原理...</h3><div class="box">
+
+      <h4>发布</h4>
+      <div class="code"><ul><li><a rel="rb" href="#" class="active"></a></li></ul>
+        <pre><code data-lang="rb" class="rb">        http://www.pushincloud.com/pub?id=your_channel</code></pre>
+      </div>
+
+      <h4>订阅</h4>
+      <div class="code">
+        <ul>
+          <li><a rel="js" href="#" class="active"></a></li>
+        </ul>
+        <pre>
+      <code data-lang="js" class="js">
+        ws://www.pushincloud.com/ws/your_channel
+      </code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="email_div">
+</div>

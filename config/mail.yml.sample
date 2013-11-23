@@ -1,0 +1,10 @@
+method: :smtp
+charset: "utf-8"
+settings:
+  :address: "smtp.gmail.com"
+  :port: 587
+  :domain: "localhost.localdomain"
+  :authentication:  :plain
+  :enable_starttls_auto: true
+  :user_name: "xxx@gmail.com"
+  :password: "xxx"

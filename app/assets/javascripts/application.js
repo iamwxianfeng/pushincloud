@@ -1,0 +1,9 @@
+//= require_self
+//= require jquery
+//= require jquery_ujs
+//= require pushstream
+//= require w
+//= require global
+//= require index
+//= require manage
+//= require channel

@@ -1,0 +1,46 @@
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+
+<div id="broadcast">
+</div>
+
+<script type="text/javascript">
+
+
+  // <![CDATA[
+
+  var channel = new Push.Channel.Cfg();
+
+  function showMap(lat,lon){
+    var html = '<div style="width:300px;height:300px;" id="map"></div>';
+    $("#broadcast").prepend( '<span style="font-size:40px;color: blue;">cloud jam 开始鸟</span> ' + html);
+    var map = new BMap.Map("map");            // 创建Map实例
+    var point = new BMap.Point(lat, lon);    // 创建点坐标
+    map.centerAndZoom(point,15);                     // 初始化地图,设置中心点坐标和地图级别。
+  };
+
+  function messageReceived(text, id, channel) {
+    // document.getElementById('broadcast').innerHTML += id + ': ' + text + '<br>';
+    var data = JSON.parse(text);
+    var content = data.content;
+    // if(/(http.*\s?)/i.test(content)){ // 连接
+    //  content = content + '<a href='+ RegExp.$1 +'>'+ RegExp.$1 +'</a>';
+    if(/(http.*\s?)/ig.test(content)){ // 图片
+      content = content + '<img src=' + RegExp.$1 + ' width=200px height=200px />' + '<br/>';
+    }else if (content.split(/,/).length == 2){ // 地图
+      var latlon = content.split(/,/);
+      showMap(latlon[1],latlon[0]);
+    }
+    $("#broadcast").prepend( '<hr/><img width="50px" height="50px" src='+ data.avatar +'>' +'</img>' + '<span style="color: #FF0000;">' + data.name + '</span>' + "\r" + content + new Date().toLocaleString()  + "<br/>");
+  };
+
+  var pushstream = new PushStream({
+    host: channel.host(),
+    port: channel.port(),
+    modes: "websocket"
+  });
+  pushstream.onmessage = messageReceived;
+  pushstream.addChannel('cloudjam');
+  pushstream.connect();
+  // ]]>
+
+</script>

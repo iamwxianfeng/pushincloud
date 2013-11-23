@@ -1,0 +1,9 @@
+<p class="nba">
+  <%= submit_tag  '发布', :type=>"button" , :onclick=>"Push.Manage.publish_nba('#{params[:action]}');" %> <br/>
+  <%= text_area_tag :nba_content %>
+</p>
+
+<div id="show_nba_content">
+</div>
+
+

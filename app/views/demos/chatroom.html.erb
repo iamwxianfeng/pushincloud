@@ -1,0 +1,21 @@
+<div id="broadcast">
+</div>
+
+<script type="text/javascript">
+  var  wsServer = "ws://localhost/ws/<%= params[:action] %>";
+  var  websocket = new WebSocket(wsServer);
+  websocket.onopen = function (evt) { onOpen(evt) };
+  websocket.onclose = function (evt) { onClose(evt) };
+  websocket.onmessage = function (evt) { onMessage(evt) };
+  websocket.onerror = function (evt) { onError(evt) };
+
+  function onOpen(evt) {
+  }
+  function onClose(evt) {
+  }
+  function onMessage(evt) {
+    $("#broadcast").prepend(new Date().toLocaleString() + "\t" + JSON.parse(evt.data).text + "<br/>");
+  }
+  function onError(evt) {
+  }
+</script>

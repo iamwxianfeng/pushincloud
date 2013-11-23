@@ -1,0 +1,43 @@
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+
+<div id="broadcast">
+</div>
+
+<script type="text/javascript">
+
+  function showMap(lat,lon){
+    var html = '<div style="width:300px;height:300px;" id="map"></div>';
+    $("#broadcast").prepend(html);
+    var map = new BMap.Map("map");            // 创建Map实例
+    var point = new BMap.Point(lat, lon);    // 创建点坐标
+    map.centerAndZoom(point,15);                     // 初始化地图,设置中心点坐标和地图级别。
+  };
+
+  var channel = new Push.Channel.Cfg();
+  var  wsServer = "ws://"+ channel.host() +"/ws/<%= params[:id] %>";
+  var  websocket = new WebSocket(wsServer);
+  websocket.onopen = function (evt) { onOpen(evt) };
+  websocket.onclose = function (evt) { onClose(evt) };
+  websocket.onmessage = function (evt) { onMessage(evt) };
+  websocket.onerror = function (evt) { onError(evt) };
+
+  function onOpen(evt) {
+  }
+  function onClose(evt) {
+  }
+  function onMessage(evt) {
+    var data = JSON.parse(evt.data);
+    var text = data.text;
+    if(/^http.*[^\.jpg]$/i.test(text)){ // 连接
+      text = '<a href='+ text +'>'+ text +'</a>';
+    }else if(/^http.*\.jpg$/i.test(text)){ // 图片
+      text = '<img src=' + text + ' width=300px height=300px />';
+    }else if (text.split(/,/).length == 2){ // 地图
+      var latlon = text.split(/,/);
+      showMap(latlon[1],latlon[0]);
+    }
+    $("#broadcast").prepend( '<span style="color: #FF0000;">' + text + '</span>' + "\r" + new Date().toLocaleString()  + "<br/>");
+  }
+  function onError(evt) {
+  }
+</script>

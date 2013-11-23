@@ -1,0 +1,57 @@
+<strong>
+  Ruby
+</strong>
+
+<pre>
+# Pub
+require 'httparty'
+HTTParty.post("http://www.pushincloud.com/pub?id=your_channel", "hi")
+
+# Sub
+require 'faye/websocket'
+
+server = "ws://www.pushincloud.com/ws/your_channel"
+ws = Faye::WebSocket::Client.new(server)
+ws.onopen = lambda do |event|
+end
+
+ws.onmessage = lambda do |event|
+  content = CGI.unescape(event.data)
+end
+
+ws.onclose = lambda do |event|
+end
+</pre>
+
+<br/>
+
+<strong>Javascript</strong>
+
+<pre>
+# Pub
+$.ajax({
+    url: "http://www.pushincloud.com/pub?id=your_channel",
+    type: "POST",
+    data: 'hi',
+    success: function(ret){
+    }
+  });
+
+# Sub
+var  wsServer = "ws://www.pushincloud.com/ws/your_channel";
+var  websocket = new WebSocket(wsServer);
+websocket.onopen = function (evt) { onOpen(evt) };
+websocket.onclose = function (evt) { onClose(evt) };
+websocket.onmessage = function (evt) { onMessage(evt) };
+websocket.onerror = function (evt) { onError(evt) };
+
+function onOpen(evt) {
+}
+function onClose(evt) {
+}
+function onMessage(evt) {
+  var data = JSON.parse(evt.data);
+}
+function onError(evt) {
+}
+</pre>

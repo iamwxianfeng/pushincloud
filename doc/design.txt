@@ -1,0 +1,41 @@
+user:
+email <-> key
+
+DEMO:
+* NBA 直播
+* 聊天室（同时在一个页面观看nba 视频直播)
+* one to one 聊天
+* 随机陌生人聊天
+* android 客户端demo
+* ios 客户端demo
+
+内容:
+  文字
+  超链接
+  图片
+  语音
+  地图 39.999491,116.339687
+      http://dev.baidu.com/wiki/static/map/API/examples/
+  视频
+
+图片地址:
+http://ww1.sinaimg.cn/large/805ee256gw1drr3nb724dj.jpg
+http://ww2.sinaimg.cn/bmiddle/84fc454djw1drr11kwy4mj.jpg
+http://ww2.sinaimg.cn/bmiddle/56c60675jw1drr0vrsv4xj.jpg
+
+POST:
+curl -s -v -X POST 'http://www.pushincloud.com/pub?id=nba' -d 'Hello World!'
+curl -s -v -X POST 'http://www.pushincloud.com/pub?id=iphone_2' -d 'Hello World!'
+
+Sub
+curl -s -v 'http://www.pushincloud.com/sub/iphone_1'
+
+REF:
+http://www.computerhope.com/htmcolor.htm
+
+    var sToMatch = "#123456789";
+    var reNumbers = /#(\d+)/;
+    reNumbers.test(sToMatch);
+    alert(RegExp.$1);
+
+
